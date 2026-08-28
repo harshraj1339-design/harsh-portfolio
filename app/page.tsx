@@ -5,7 +5,6 @@ import {
   ArrowDown,
   ArrowUpRight,
   Check,
-  ChevronDown,
   ChevronRight,
   Code2,
   Download,
@@ -22,11 +21,11 @@ import {
   X,
 } from 'lucide-react'
 
-const resumeUrl = '/resume.pdf'
-const certificateAssets: Record<string, string> = {
-  Infosys: '/certificates/infosys.png',
-  Cursa: '/certificates/cursa.jpeg',
-  'Tech Veda': '/certificates/tech-veda.png',
+const resumeUrl = 'https://blobs.vusercontent.net/blob/Harsh_Raj_CV_Final-8WdEH3LFwoEfsJ7HN4BviLkP73lEf0.pdf'
+const certificateLinks: Record<string, string> = {
+  Infosys: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CERTIFICATE-K0FPCA8SI9iZ0GQwlM0TjhjrmwDLkQ.png',
+  Cursa: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FULL%20STACK%20CERT-WUrfln4qaQGN66WDjIKWXfWcbVPgxW.jpeg',
+  'Tech Veda': 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cert-SrT1cUvUhjQPBkgbDgmb6SpKElaVgD.png',
 }
 
 const skills = {
@@ -43,12 +42,14 @@ const projects = [
     description: 'A personal expense-management application designed to help users record, organize, search, and review their day-to-day spending.',
     features: ['Add Expense', 'View Expenses', 'Search Expense', 'Delete Expense', 'Monthly Total', 'Category Total', 'Highest Expense', 'Personal Expense Tracking'],
     tech: ['HTML', 'CSS', 'JavaScript'],
+    href: 'https://github.com/harshraj1339-design/splitspend',
   },
   {
     number: '02', name: 'EduTrack', type: 'Student Academic Management',
     description: 'A student-focused academic management application designed to organize important academic information and student utilities in one place.',
     features: ['Subject Management', 'Marks', 'Grades', 'Credits', 'TGPA Calculator', 'Notes', 'Attendance Manager', 'Academic Tracking'],
     tech: ['React', 'Vite', 'Tailwind CSS', 'JavaScript'],
+    href: 'https://github.com/harshraj1339-design/EduTrack',
   },
 ]
 
@@ -102,13 +103,13 @@ function About() { return <section id="about" className="section container"><Sec
 
 function Skills() { return <section id="skills" className="section section-muted"><div className="container"><SectionLabel>02 / SKILLS</SectionLabel><div className="skills-grid">{Object.entries(skills).map(([category, items]) => <div className="skill-group" key={category}><p className="mini-label">{category}</p>{items.map(item => <div className="skill-item" key={item}><Check size={15} />{item}</div>)}</div>)}</div></div></section> }
 
-function Projects() { return <section id="projects" className="section container"><SectionLabel>03 / SELECTED PROJECTS</SectionLabel><div className="section-heading"><h2>Things I&apos;ve<br /><span>built.</span></h2><p>Small, focused products built to learn deeply and solve everyday problems.</p></div><div className="projects-list">{projects.map((project, index) => <article className={`project-card ${index % 2 ? 'reverse' : ''}`} key={project.number}><div className="project-index">{project.number}</div><div className="project-main"><div className="project-visual"><div className="mockup-window"><div className="mockup-bar"><i /><i /><i /><span>{project.name.toLowerCase().replace(' ', '-')}</span></div><div className="mockup-content"><strong>{index === 0 ? 'Monthly overview' : 'Academic dashboard'}</strong><div className="mockup-lines"><span /><span /><span /></div><div className="mockup-blocks"><b /><b /><b /></div></div></div></div><div className="project-copy"><p className="project-type">{project.type}</p><h3>{project.name}</h3><p className="project-description">{project.description}</p><p className="mini-label">FEATURES</p><div className="feature-list">{project.features.map(f => <span key={f}>{f}</span>)}</div><div className="project-bottom"><div className="tech-list">{project.tech.map(t => <span key={t}>{t}</span>)}</div><div className="project-links"><span className="disabled-link">Repository coming soon <ExternalLink size={14} /></span></div></div></div></div></article>)}</div><p className="coming">More projects coming soon <ChevronRight size={16} /></p></section> }
+function Projects() { return <section id="projects" className="section container"><SectionLabel>03 / SELECTED PROJECTS</SectionLabel><div className="section-heading"><h2>Things I&apos;ve<br /><span>built.</span></h2><p>Small, focused products built to learn deeply and solve everyday problems.</p></div><div className="projects-list">{projects.map((project, index) => <article className={`project-card ${index % 2 ? 'reverse' : ''}`} key={project.number}><div className="project-index">{project.number}</div><div className="project-main"><div className="project-visual"><div className="mockup-window"><div className="mockup-bar"><i /><i /><i /><span>{project.name.toLowerCase().replace(' ', '-')}</span></div><div className="mockup-content"><strong>{index === 0 ? 'Monthly overview' : 'Academic dashboard'}</strong><div className="mockup-lines"><span /><span /><span /></div><div className="mockup-blocks"><b /><b /><b /></div></div></div></div><div className="project-copy"><p className="project-type">{project.type}</p><h3>{project.name}</h3><p className="project-description">{project.description}</p><p className="mini-label">FEATURES</p><div className="feature-list">{project.features.map(f => <span key={f}>{f}</span>)}</div><div className="project-bottom"><div className="tech-list">{project.tech.map(t => <span key={t}>{t}</span>)}</div><div className="project-links"><a className="project-link" href={project.href} target="_blank" rel="noreferrer">View Repository <ExternalLink size={14} /></a></div></div></div></div></article>)}</div><p className="coming">More projects coming soon <ChevronRight size={16} /></p></section> }
 
 function Profiles() { return <section className="section section-muted"><div className="container"><SectionLabel>04 / CODE &amp; CONNECT</SectionLabel><div className="profile-grid">{profiles.map(({ name, detail, href, icon: Icon }) => <a className="profile-card" href={href} target="_blank" rel="noreferrer" key={name}><div className="profile-icon"><Icon size={22} /></div><div><h3>{name}</h3><p>{detail}</p></div><ArrowUpRight size={18} className="profile-arrow" /></a>)}</div></div></section> }
 
 function Education() { return <section id="education" className="section container"><SectionLabel>05 / EDUCATION</SectionLabel><div className="section-heading"><h2>Where I<br /><span>started.</span></h2><p>Every stage has added another layer to how I think, learn, and build.</p></div><div className="timeline">{education.map((item, index) => <article className="timeline-entry" key={item.level}><div className="timeline-marker"><span>{item.level}</span></div><div className="timeline-content"><p className="project-type">{item.status}</p><h3>{item.title}</h3><p className="timeline-place">{item.place}</p><p>{item.detail}</p></div><span className="timeline-count">0{education.length - index}</span></article>)}</div></section> }
 
-function Certifications() { const [selected, setSelected] = useState<string | null>(null); return <section id="certifications" className="section section-muted"><div className="container"><SectionLabel>06 / CERTIFICATIONS</SectionLabel><div className="cert-list">{certifications.map(([title, issuer, date]) => <div className="cert-card" key={title}><div><p className="project-type">{date}</p><h3>{title}</h3><p>{issuer}</p></div><button className="certificate-button" onClick={() => setSelected(issuer)}>View Certificate <ExternalLink size={15} /></button></div>)}</div></div>{selected && <div className="lightbox" role="dialog" aria-modal="true" aria-label={`${selected} certificate`} onClick={() => setSelected(null)}><div className="lightbox-inner" onClick={(event) => event.stopPropagation()}><button className="lightbox-close" onClick={() => setSelected(null)} aria-label="Close certificate">×</button><img src={certificateAssets[selected]} alt={`${selected} certificate`} /></div></div>}</section> }
+function Certifications() { return <section id="certifications" className="section section-muted"><div className="container"><SectionLabel>06 / CERTIFICATIONS</SectionLabel><div className="cert-list">{certifications.map(([title, issuer, date]) => <div className="cert-card" key={title}><div><p className="project-type">{date}</p><h3>{title}</h3><p>{issuer}</p></div><a className="certificate-button" href={certificateLinks[issuer]} target="_blank" rel="noreferrer">View Certificate <ExternalLink size={15} /></a></div>)}</div></div></section> }
 
 function Contact() { const [sent, setSent] = useState(false); function handleSubmit(event: FormEvent<HTMLFormElement>) { event.preventDefault(); setSent(true); event.currentTarget.reset(); } return <><section id="resume" className="resume-cta container"><div><SectionLabel>07 / RESUME</SectionLabel><h2>My <span>resume.</span></h2><p>Want a quick overview of my skills, projects and learning journey?</p></div><div className="resume-paper"><FileText size={26} /><span>Harsh_Raj_Resume.pdf</span><a href={resumeUrl} className="button-primary">Download Resume <Download size={17} /></a></div></section><section id="contact" className="contact section"><div className="container"><SectionLabel>08 / CONTACT</SectionLabel><div className="contact-grid"><div><h2>Let&apos;s build something <span>together.</span></h2><p>I&apos;m always interested in learning, building useful projects, and connecting with other developers.</p><a className="email-link" href="mailto:harshraj13339@gmail.com">harshraj13339@gmail.com <ArrowUpRight size={18} /></a></div><form className="contact-form" onSubmit={handleSubmit}><label>Name<input required name="name" /></label><label>Email<input required type="email" name="email" /></label><label>Message<textarea required name="message" rows={4} /></label><button className="button-primary" type="submit">{sent ? 'Draft ready to send' : 'Send Message'} <Send size={16} /></button><small>This form is prepared for email integration.</small></form></div><div className="contact-socials">{profiles.map(({ name, href }) => <a key={name} href={href} target="_blank" rel="noreferrer">{name} <ArrowUpRight size={15} /></a>)}</div></div></section></> }
 
