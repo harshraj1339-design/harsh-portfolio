@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Harsh Raj | Web Developer & C++ DSA Enthusiast',
+  description: 'Portfolio of Harsh Raj, a B.Tech student and web developer focused on C++, Data Structures & Algorithms, problem solving, and modern web development.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   colorScheme: 'light dark',
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
+    { media: '(prefers-color-scheme: light)', color: '#f4f3ef' },
+    { media: '(prefers-color-scheme: dark)', color: '#111110' },
   ],
 }
 
